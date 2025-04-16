@@ -1,6 +1,6 @@
 
 " NOURIDIN'S CONFIG FILES FOR VIMRC
-" VERSION : 1.0.0
+" VERSION : 1.1.0
 " DATE : 2025 MARCH 22TH 
 
 set number
@@ -14,9 +14,7 @@ set relativenumber
 syntax on
 set nobackup
 set nowb
-set noswapfile
-
-colorscheme  spaceduck
+set noswapfile 
 
 set cursorline
 set cursorcolumn
@@ -54,7 +52,6 @@ Plug 'rstacruz/vim-closer'
 Plug 'simnalamburt/vim-mundo'
 Plug 'vim-airline/vim-airline'
 Plug 'wfxr/minimap.vim'
-Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -65,7 +62,8 @@ Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'frazrepo/vim-rainbow'
+Plug 'folke/flash.nvim'
 
 call plug#end()
 " }}}
@@ -99,5 +97,10 @@ autocmd VimEnter * NERDTree | wincmd p
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
+colorscheme sonokai
+
+" Override GitBlame's appearance (adjust to match your theme)
+highlight GitBlame guifg=#808080 ctermfg=8 gui=italic cterm=italic
 
 
